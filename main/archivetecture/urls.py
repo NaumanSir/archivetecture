@@ -13,17 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-# from django.conf.urls import url
-# from django.contrib import admin
 
-# urlpatterns = [
-#     url(r'^admin/', admin.site.urls),
-# ]
-
-from django.urls import path
-from arch_app.views import Archs
+from django.conf.urls import url, include
  
 urlpatterns = [
-    path( 'archs', Archs.as_view() ),    
-    # path( 'papaya/<int:papaya_id>', PapayaDetails.as_view() )
+    url(r'^$', include('arch_app.urls'))
 ]
