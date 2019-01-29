@@ -1,7 +1,7 @@
-from django.shortcuts import render, HttpResponse, redirect
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.views import View
 
 # Create your views here.
-def index(request):
-    response = "This should be JSON!"
-    return HttpResponse(response)
+class Arch(View):
+    def get(self, request):
+        return JsonResponse({'status': 'ok'})
