@@ -5,3 +5,7 @@ from django.views import View
 class Arch(View):
     def get(self, request):
         return JsonResponse({'status': 'ok'})
+    
+    def post(self, request):
+        print(request.body)
+        return JsonResponse({'status': 'ok', "message": "This is a post."})
