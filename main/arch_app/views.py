@@ -6,7 +6,8 @@ import json
 # Create your views here.
 class Archs(View):
     def get(self, request):
-        return JsonResponse({'status': 'ok'})
+        archs = list(Arch.objects.values().all())
+        return JsonResponse({'status': 'ok', "Archs": archs})
     
     def post(self, request):
         body = json.loads(request.body.decode())
