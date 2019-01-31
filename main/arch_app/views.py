@@ -1,11 +1,20 @@
 from django.http import JsonResponse
 from django.views import View
+from .models import Arch
+import json
 
 # Create your views here.
-class Arch(View):
+class Archs(View):
     def get(self, request):
         return JsonResponse({'status': 'ok'})
     
     def post(self, request):
-        print(request.body)
+        body = json.loads(request.body.decode())
+        print(body, type(body))
+        Arch.objects.create(
+            name = body['name'],
+            yrbuilt = body['yrbuilt'],
+            location = body['location'],
+            desc = body['desc'],
+        )
         return JsonResponse({'status': 'ok', "message": "This is a post."})

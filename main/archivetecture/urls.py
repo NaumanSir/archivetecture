@@ -15,8 +15,8 @@ Including another URLconf
 """
 
 from django.conf.urls import url, include
-from arch_app.views import Arch
+from arch_app.views import Archs
  
 urlpatterns = [
-    url(r'^arch$', Arch.as_view()),
+    url(r'^arch$', Archs.as_view()),
 ]
