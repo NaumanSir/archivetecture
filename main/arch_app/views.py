@@ -12,10 +12,11 @@ class Archs(View):
     def post(self, request):
         body = json.loads(request.body.decode())
         print(body, type(body))
-        Arch.objects.create(
-            name = body['name'],
-            yrbuilt = body['yrbuilt'],
-            location = body['location'],
-            desc = body['desc'],
-        )
+        # Arch.objects.create(
+        #     name = body['name'],
+        #     yrbuilt = body['yrbuilt'],
+        #     location = body['location'],
+        #     desc = body['desc'],
+        # )
+        Arch.objects.create_arch(body)
         return JsonResponse({'status': 'ok', "message": "This is a post."})
